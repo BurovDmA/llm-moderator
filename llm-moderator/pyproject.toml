@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "llm-moderator"
 version = "0.1.0"
-description = ""
+description = "LLM-based content moderation project"
 authors = ["Your Name <you@example.com>"]
 readme = "README.md"
 packages = [{include = "llm_moderator"}]
@@ -9,6 +9,12 @@ packages = [{include = "llm_moderator"}]
 [tool.poetry.dependencies]
 python = "^3.11"
 
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^4.5.0"
+ruff = "^0.14.8"
+black = "^25.11.0"
+isort = "^7.0.0"
 
 [build-system]
 requires = ["poetry-core"]
