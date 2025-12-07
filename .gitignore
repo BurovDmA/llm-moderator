@@ -25,3 +25,8 @@ mlruns/
 
 .DS_Store
 Thumbs.db
+
+dvc_storage/
+lightning_logs/
+outputs/
+mlflow.db
