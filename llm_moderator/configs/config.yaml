@@ -1,0 +1,8 @@
+defaults:
+  - data: default
+  - model: default
+  - train: default
+  - mlflow: default
+  - _self_
+
+seed: 42

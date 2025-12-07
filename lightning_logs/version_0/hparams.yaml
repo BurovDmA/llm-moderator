@@ -1,0 +1,4 @@
+pretrained_name: distilbert-base-uncased
+num_labels: 2
+learning_rate: 0.0001
+weight_decay: 0.0001

@@ -1,0 +1,27 @@
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+
+# venv
+.venv/
+env/
+venv/
+
+# DVC data
+data/*
+!data/.gitkeep
+!data/processed.dvc
+!data/raw.dvc
+
+.dvc/tmp/
+.dvc/cache/
+
+mlruns/
+
+.ipynb_checkpoints/
+
+.DS_Store
+Thumbs.db
