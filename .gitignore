@@ -30,3 +30,5 @@ dvc_storage/
 lightning_logs/
 outputs/
 mlflow.db
+mlflow.db
+mlruns/
