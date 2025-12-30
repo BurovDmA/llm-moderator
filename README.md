@@ -43,48 +43,62 @@
 ```bash
 git clone https://github.com/<your-username>/llm-moderator.git
 cd llm-moderator
+```
 
-2. Создание виртуального окружения для проверки ДЗ (Если вдруг не создано еще), пример через conda:
+## 2. Создание виртуального окружения для проверки ДЗ (Если вдруг не создано еще), пример через conda:
+```bash
 conda create --name llm_validator python=3.11
 conda activate llm_validator
+```
 
-3. Установка poetry
+## 3. Установка poetry
 
 Если poetry не установлен:
-
+```bash
 pip install poetry
+```
 
-4. Установка зависимостей
+## 4. Установка зависимостей
+```bash
 poetry install
-
-4. Установка зависимостей, которые poetry не может добавить (Иногда ловил баг на Windows, на unix все работает исправно)
+```
+## 4. Установка зависимостей, которые poetry не может добавить (Иногда ловил баг на Windows, на unix все работает исправно)
+```bash
 poetry run pip install mlflow fire
-
-6. Установка pre-commit
+```
+## 5. Установка pre-commit
+```bash
 pre-commit install
 pre-commit run -a
-
+```
 Все проверки должны быть зелёными.
 
-7. Запуск обучения (train раздел):
+## 6. Запуск обучения (train раздел):
 
 1. Запуск MLflow UI (в отдельном терминале)
+```bash
 mlflow ui --host 127.0.0.1 --port 8080
-
+```
 2. Запуск обучения
-poetry run llm-cli train - вообще предварительно можно скачать данные через poetry run llm-cli download, но "под капотом" train ее сам запустит,
+```bash
+poetry run llm-cli train
+```
+Вообще предварительно можно скачать данные через poetry run llm-cli download, но "под капотом" train ее сам запустит,
 выдав лог-error о том что данных нет, так что в целом проверяющему для удобства достаточно только этой команды, она все сделает)
 
 
-Работа с данными (DVC)
+## Работа с данными (DVC)
 
 Проект использует DVC для версиирования данных.
 Первичное скачивание данных выполняется командой:
-
+```bash
 poetry run llm-cli download
+```
 
 Если у вас данных нет — при запуске обучения автоматически выполнится:
+```bash
 dvc pull
+```
 
 Данные хранятся в локальном DVC-remote (dvc_storage/).
 
@@ -105,16 +119,18 @@ configs/mlflow/default.yaml — трекинг в MLflow
 config.yaml — главный конфиг
 
 Переключить параметр можно так:
-
+```bash
 poetry run llm-cli train train.max_epochs=1 data.batch_size=4
-
+```
 Запуск обучения
 1. Запуск MLflow UI (в отдельном терминале)
+```bash
 mlflow ui --host 127.0.0.1 --port 8080
-
-2. Запуск обучения
+```
+3. Запуск обучения
+```bash
 poetry run llm-cli train
-
+```
 
 Что происходит:
 
@@ -133,8 +149,9 @@ train/val accuracy
 train/val ROC-AUC
 
 гиперпараметры
-
+```bash
 git commit hash
+```
 
 После запуска зайдите в MLflow:
 
@@ -143,15 +160,17 @@ http://127.0.0.1:8080
 CLI команды
 
 Все команды доступны через:
-
+```bash
 poetry run llm-cli <команда>
-
+```
 
 Доступные команды:
 
 Скачать данные
+```bash
 poetry run llm-cli download
-
+```
 Запустить обучение
+```bash
 poetry run llm-cli train
-
+```
